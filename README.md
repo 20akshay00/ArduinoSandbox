@@ -1,0 +1,3 @@
+### Arduino Sandbox
+
+This repository serves as a sandbox for testing out various sensors and components with a knock-off Arduino UNO board that I recently procured. In the interest of free knowledge, I have tried to document the circuit diagrams (using Fritzing) along with any interesting concepts in each of the project folders. All these files should be directly compatible with the Arduino IDE, but personally my workflow involves binding VSCode tasks to arduino-cli commands to replicate the same functionality (build/upload/serial) within VSCode without any unnecessary bloat.

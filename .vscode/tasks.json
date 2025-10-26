@@ -1,0 +1,68 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compile Current Sketch",
+            "type": "shell",
+            "command": "arduino-cli compile -v -b arduino:avr:uno \"${fileDirname}\"",
+            "group": "build",
+            "isBackground": false,
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Upload Current Sketch",
+            "type": "shell",
+            "command": "arduino-cli upload -p COM5 -v --fqbn arduino:avr:uno \"${fileDirname}\"",
+            "group": "test",
+            "isBackground": false,
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Compile & Upload Current Sketch",
+            "dependsOn": [
+                "Compile Current Sketch",
+                "Upload Current Sketch"
+            ],
+            "dependsOrder": "sequence",
+            "group": "build"
+        },
+        {
+            "label": "Serial Monitor",
+            "type": "shell",
+            "command": "arduino-cli monitor -p COM5 -c 9600",
+            "group": "test",
+            "isBackground": false,
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "dedicated"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Compile & Upload Current Sketch w/ Serial Monitor",
+            "dependsOn": [
+                "Compile Current Sketch",
+                "Upload Current Sketch",
+                "Serial Monitor"
+            ],
+            "dependsOrder": "sequence",
+            "group": "build"
+        }
+    ]
+}
